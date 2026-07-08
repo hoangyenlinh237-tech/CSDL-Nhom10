@@ -1,0 +1,16 @@
+CREATE TABLE Virtual_Server (
+
+    serverID INT,
+    hostPhysicalServerID INT NOT NULL,
+
+    CONSTRAINT PK_VirtualServer
+        PRIMARY KEY (serverID),
+
+    CONSTRAINT FK_Virtual_Server
+        FOREIGN KEY (serverID)
+        REFERENCES Server(serverID),
+
+    CONSTRAINT FK_Virtual_Host
+        FOREIGN KEY (hostPhysicalServerID)
+        REFERENCES Physical_Server(serverID)
+);
