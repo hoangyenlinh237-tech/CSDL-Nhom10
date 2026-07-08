@@ -1,0 +1,16 @@
+CREATE TABLE Account (
+    accountID INT AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    employeeID INT NOT NULL,
+
+    CONSTRAINT PK_Account PRIMARY KEY (accountID),
+
+    CONSTRAINT UQ_Username UNIQUE (username),
+
+    CONSTRAINT UQ_Account_Employee UNIQUE (employeeID),
+
+    CONSTRAINT FK_Account_Employee
+        FOREIGN KEY (employeeID)
+        REFERENCES Employee(employeeID)
+);
