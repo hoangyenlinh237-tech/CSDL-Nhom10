@@ -1,0 +1,11 @@
+CREATE TABLE Physical_Server (
+
+    serverID INT,
+
+    CONSTRAINT PK_PhysicalServer
+        PRIMARY KEY (serverID),
+
+    CONSTRAINT FK_Physical_Server
+        FOREIGN KEY (serverID)
+        REFERENCES Server(serverID)
+);
