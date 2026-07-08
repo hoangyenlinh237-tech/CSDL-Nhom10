@@ -1,0 +1,10 @@
+INSERT INTO Department
+(departmentName,internalMailbox,phone)
+
+VALUES
+
+('IT','it@skylog.com','028111111'),
+
+('HR','hr@skylog.com','028222222'),
+
+('Finance','finance@skylog.com','028333333');
