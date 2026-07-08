@@ -1,0 +1,9 @@
+CREATE TABLE Mobile_Device (
+    deviceID INT,
+
+    CONSTRAINT PK_MobileDevice PRIMARY KEY (deviceID),
+
+    CONSTRAINT FK_Mobile_Device
+        FOREIGN KEY (deviceID)
+        REFERENCES Device(deviceID)
+);
