@@ -1,0 +1,17 @@
+CREATE TABLE Employee (
+    employeeID INT AUTO_INCREMENT,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    jobTitle VARCHAR(100) NOT NULL,
+    hireDate DATE NOT NULL,
+    departmentID INT NOT NULL,
+
+    CONSTRAINT PK_Employee PRIMARY KEY (employeeID),
+
+    CONSTRAINT UQ_Employee_Email UNIQUE (email),
+
+    CONSTRAINT FK_Employee_Department
+        FOREIGN KEY (departmentID)
+        REFERENCES Department(departmentID)
+);
