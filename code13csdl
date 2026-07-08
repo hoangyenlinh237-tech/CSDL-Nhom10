@@ -1,0 +1,14 @@
+DELIMITER $$
+
+CREATE TRIGGER trg_CheckRevokeDate
+BEFORE INSERT ON Server_Access
+FOR EACH ROW
+BEGIN
+    IF NEW.revokeDate IS NOT NULL
+       AND NEW.revokeDate < NEW.approvalDate THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Revoke Date must be greater than Approval Date';
+    END IF;
+END$$
+
+DELIMITER ;
