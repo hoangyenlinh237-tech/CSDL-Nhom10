@@ -1,0 +1,24 @@
+CREATE TABLE Server_Access (
+
+    deviceID INT,
+    serverID INT,
+    approvalDate DATE NOT NULL,
+    revokeDate DATE,
+
+    CONSTRAINT PK_ServerAccess
+        PRIMARY KEY (deviceID, serverID),
+
+    CONSTRAINT FK_ServerAccess_Device
+        FOREIGN KEY (deviceID)
+        REFERENCES Device(deviceID),
+
+    CONSTRAINT FK_ServerAccess_Server
+        FOREIGN KEY (serverID)
+        REFERENCES Server(serverID),
+
+    CONSTRAINT CK_RevokeDate
+        CHECK (
+            revokeDate IS NULL
+            OR revokeDate >= approvalDate
+        )
+);
