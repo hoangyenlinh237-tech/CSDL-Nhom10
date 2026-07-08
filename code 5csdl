@@ -1,0 +1,17 @@
+CREATE TABLE Fixed_Device (
+    deviceID INT,
+    ipAddress VARCHAR(45) NOT NULL,
+    macAddress VARCHAR(17) NOT NULL,
+    buildingName VARCHAR(100) NOT NULL,
+    roomNumber VARCHAR(20) NOT NULL,
+
+    CONSTRAINT PK_FixedDevice PRIMARY KEY (deviceID),
+
+    CONSTRAINT UQ_Fixed_IP UNIQUE (ipAddress),
+
+    CONSTRAINT UQ_Fixed_MAC UNIQUE (macAddress),
+
+    CONSTRAINT FK_Fixed_Device
+        FOREIGN KEY (deviceID)
+        REFERENCES Device(deviceID)
+);
